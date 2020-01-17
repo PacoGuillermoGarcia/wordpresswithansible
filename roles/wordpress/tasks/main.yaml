@@ -1,0 +1,10 @@
+- name: Instalar unzip
+  apt:
+    name: unzip
+- name: Descargar wordpress
+  get_url: url=https://wordpress.org/latest.zip dest=/tmp/latest.zip mode=0640
+- name: Descomprimir wordpress
+  unarchive: src=/tmp/latest.zip dest=/var/www/html copy=no owner=www-data group=www-data mode=0744
+- name: Copiar fichero configurción de wordpress (wp-config.php)
+  template: src=templates/wp-config.php dest=/var/www/html/wordpress/wp-config.php owner=www-data group=www-data mode=0744
+  notify: restart apache2

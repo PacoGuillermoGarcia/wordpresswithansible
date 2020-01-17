@@ -1,0 +1,13 @@
+- hosts: all
+  become: true
+  roles:
+    - update
+- hosts: servidor_bbdd
+  become: true
+  roles:
+    - mariadb
+- hosts: servidor_web
+  become: true
+  roles:
+    - apache2
+    - wordpress

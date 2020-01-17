@@ -1,0 +1,5 @@
+[servidor_web]
+wordpress ansible_ssh_host=172.22.6.241
+
+[servidor_bbdd]
+basededatos ansible_ssh_host=172.22.1.39
